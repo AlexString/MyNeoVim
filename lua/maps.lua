@@ -34,3 +34,23 @@ cmp.setup {
          },
       },
 }
+-- Nerdtree
+map('n', '<leader>t', ':NERDTreeToggle<CR>') -- Open nerdtree
+map('n', '<leader>T', ':NERDTreeFocus<CR>') -- toogle focus on nerdtree 
+-- telescope
+map('n', '<C-f>', ':Telescope find_files<CR>')       -- find files
+map('n', '<C-g>', ':Telescope live_grep<CR>')        -- grep actual file
+map('n', '<leader><Tab>', ':Telescope buffers<CR>')  -- open buffers window
+-- Re-map telescope keys
+local actions = require "telescope.actions"
+require('telescope').setup {
+  defaults = {
+    mappings = {
+      n = {
+        ["<Tab>"] = actions.move_selection_next,
+        ["<S-Tab>"] = actions.move_selection_previous,
+      }
+    }
+  }
+}
+--

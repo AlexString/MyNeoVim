@@ -27,6 +27,3 @@ cmp.setup {
          ghost_text = true
       }
 }
--- LSPs
-require 'lsp.python'
-require 'lsp.ts'
