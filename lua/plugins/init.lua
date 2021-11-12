@@ -13,13 +13,12 @@ end
 -- }}}
 
 return require('packer').startup(function (use)
-  -- Packer can manage itself
-  use {'wbthomason/packer.nvim'}
+  use {'wbthomason/packer.nvim'} -- Packer can manage itself
+  ----------- THEMES ---------------
+  use {'tiagovla/tokyodark.nvim'}
+  ------- code completion ----------
   -- Language server protocol
   use {'neovim/nvim-lspconfig'}
-  -- code completion
-  --use {'hrsh7th/cmp-nvim-lsp'} -- on Requires
-  --use {'hrsh7th/cmp-buffer'} -- on Requires
   use {'hrsh7th/nvim-cmp',
     config = "require('plugins.config.cmp')",
     requires = {
@@ -27,42 +26,48 @@ return require('packer').startup(function (use)
       {'hrsh7th/cmp-buffer'},
     }
   }
-  -- awesome icons in the code completion
-  use {'onsails/lspkind-nvim'} -- this is configured directly in cmp
+  -- awesome icons in code completion
+  use {'onsails/lspkind-nvim'} -- configured directly in cmp.lua
   -- treesitter
   use {'nvim-treesitter/nvim-treesitter'}
-  -- Plenary
-  --use {'nvim-lua/plenary.nvim'} -- on Requires
+  ------ visual helping tools------
+  -- nerdtree
+  use {'preservim/nerdtree',
+    config = "require('plugins.config.nerdtree')",
+  }
+  -- dashboard
+  use {'glepnir/dashboard-nvim',
+    config = "require('plugins.config.dashboard')",
+  }
+  -- lualine
+  use {'nvim-lualine/lualine.nvim',
+    config = "require('plugins.config.lualine')",
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
   -- telescope
   use {'nvim-telescope/telescope.nvim',
     config = "require('plugins.config.telescope')",
     requires = {
       {'nvim-treesitter/nvim-treesitter'},
       {'nvim-lua/plenary.nvim'},
+      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
     }
   }
-  --[[
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  --]]
-  -- lualine
-  use {'nvim-lualine/lualine.nvim',
-    config = "require('plugins.config.lualine')",
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  }
-  --[[ Commenting this plugin.
-          I can't make the mappings work
+  -- autopairs
+  use {'jiangmiao/auto-pairs'}
+  --[[------------- forgiven/commented -------------------
+          -- FIXME, mappings configuration breaks the file
   -- chadtree
   use {'ms-jpq/chadtree',
     branch = 'chad',
     config = "require('plugins.config.chadtree')",
-  }   ]]--
-  -- dashboard
-  use {'glepnir/dashboard-nvim',
-    config = "require('plugins.config.dashboard')",
   }
-  -- nerdtree
-  use {'preservim/nerdtree',
-    config = "require('plugins.config.nerdtree')",
+          -- FIXME, configuration didnt work
+  -- bufferline
+  use {'akinsho/bufferline.nvim', 
+    config = "require('plugins.config.bufferline')",
+    requires = 'kyazdani42/nvim-web-devicons',
   }
+  --]]
 end)
 

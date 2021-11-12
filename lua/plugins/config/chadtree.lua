@@ -1,3 +1,5 @@
+-- TODO: fix the configuration:
+--  Keymap option breaks configuration.
 -- ChadTree
 Chadtree_settings = {
   ["xdg"] = false,
