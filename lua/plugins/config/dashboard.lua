@@ -2,7 +2,6 @@
 vim.g.dashboard_default_executive = 'telescope'
 -- custom footer
 vim.g.dashboard_custom_footer = { 'You bastards!!' }
-
 -- Custom header
 vim.g.dashboard_custom_header = {
   "                               ",
@@ -30,7 +29,7 @@ vim.g.dashboard_custom_header = {
   " ▀░░░▄▀░░░░░░░░░░▀░░░▀▀▀▀▄▄▄▄▄ ",
   "                               ",
   "                               ",
-}
+} -- Found at: https://github.com/Takachii15/dotfiles/blob/master/.config/nvim/lua/modules/ui/dashboard.lua
 -- dashboard sections
 vim.g.dashboard_custom_section = {
   a = {

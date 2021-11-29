@@ -22,3 +22,6 @@ opt.clipboard = "unnamedplus"   -- copy paste between vim and everything else
 opt.timeoutlen = 500          -- input keys timeout
 opt.background = "dark"       -- backwground 
 opt.mouse="a"                 -- Enable mouse clicking
+opt.autochdir = true          -- working directory will automatically change
+
+vim.wo.cursorline = true

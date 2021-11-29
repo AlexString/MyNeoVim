@@ -16,8 +16,8 @@ return require('packer').startup(function (use)
   use {'wbthomason/packer.nvim'} -- Packer can manage itself
   ----------- THEMES ---------------
   use {'tiagovla/tokyodark.nvim'}
-  ------- code completion ----------
-  -- Language server protocol
+  ------- CODE COMPLETION ----------
+  -- language server protocol
   use {'neovim/nvim-lspconfig'}
   use {'hrsh7th/nvim-cmp',
     config = "require('plugins.config.cmp')",
@@ -30,7 +30,9 @@ return require('packer').startup(function (use)
   use {'onsails/lspkind-nvim'} -- configured directly in cmp.lua
   -- treesitter
   use {'nvim-treesitter/nvim-treesitter'}
-  ------ visual helping tools------
+  ------------ GIT ----------------
+  use { 'airblade/vim-gitgutter' }
+  ------ VISUAL HELPING TOOLS -----
   -- nerdtree
   use {'preservim/nerdtree',
     config = "require('plugins.config.nerdtree')",
@@ -55,6 +57,14 @@ return require('packer').startup(function (use)
   }
   -- autopairs
   use {'jiangmiao/auto-pairs'}
+  -- highlight yank
+  use {'machakann/vim-highlightedyank'}
+  -- fold code blocks
+  use {'tmhedberg/SimpylFold'}
+  -- shows identation
+  use { 'lukas-reineke/indent-blankline.nvim',
+    config = "require('plugins.config.indentblankline')",
+  }
   --[[------------- forgiven/commented -------------------
           -- FIXME, mappings configuration breaks the file
   -- chadtree
@@ -70,4 +80,3 @@ return require('packer').startup(function (use)
   }
   --]]
 end)
-
